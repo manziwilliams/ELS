@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="search-box">
+<button class="button-search"></button>
+  </div>
+  <div>
+    <p>Employee id:</p>
+    <div>
+        <input type="text" name="eid" value="{{ customer.customer_id }}" />
+    </div>
+</div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th> ID</th>
+            <th>meter</th>
+            <th>name</th>
+            <th>phone</th>
+            <th>Addres</th>
+          </tr>
+        </thead>
+        <tbody> 
+          <tr>
+            <td>{{customer.customer_id}}</td>
+            <td>{{customer.meter_number}}</td>
+            <td>{{customer.customer_name}}</td>
+            <td>{{customer.customer_phone}}</td>
+            <td>{{customer.customer_address}}</td>
+          </tr>
+        </tbody>
+    </table>	
+</body>
+</html>

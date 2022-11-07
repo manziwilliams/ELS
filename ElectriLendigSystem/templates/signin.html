@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ELectricity Lending System</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="../static/vendor/material-icon/css/material-design-iconic-font.min.css">
+
+
+    <link href="../static/img/white.jpg" rel="icon">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<style>
+  .button-10 {
+  background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  padding: 1rem 1.75rem;
+  text-decoration: none;
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-10:hover {
+  background-image: linear-gradient(-180deg, #1D95C9 0%, #17759C 100%);
+}
+
+@media (min-width: 768px) {
+  .button-10 {
+    padding: 1rem 2rem;
+  }
+}
+</style>
+<body>
+    <input type="hidden" id="status" value="">
+    <div class="main">
+
+        <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-imagesignin-image">
+                        <figure style="height: 50px;">
+                            <img src="../static/img/afin.jpg" alt="sing up image">
+                            <a href="http://127.0.0.1:8000/" class="signup-image-link"
+                                style="padding-bottom: 140px; text-decoration: none;">Back to Home Page</a>
+                        </figure>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Sign in</h2>
+                        <form method="POST"  action="/login"  class="register-form" id="login-form"
+                            style="font-size: 10px;">
+                            {% csrf_token %}
+
+                            <div class="form-group">
+                                <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="username" id="username" placeholder="Username" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password"><i class="zmdi zmdi-lock"></i></label> <input type="password"
+                                    name="password" id="password" placeholder="Password" />
+                            </div>
+                            {% if messages %}
+                            {% for msg in messages %}
+                            <p style="text-align: center; color: red;">{{msg}}</p>
+                            {% endfor %}
+                            {% endif %}
+                            <div class="form-group form-button">
+                                <button class="button-10" role="button">Log In</button>
+
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="alert/dist/sweetalert.css" />
+
+</body>
+
+</html>

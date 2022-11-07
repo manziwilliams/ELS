@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+ <title>Electri Lending System</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../static/img/white.jpg" rel="icon">
+  <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Variables CSS Files. Uncomment your preferred color scheme -->
+  <link href="../static/css/variables.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../static/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/buy/style.css" />
+    <script src="../static/buy/main.js" defer></script>
+  </head>
+  <body>
+      <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top" data-scrollto-offset="0">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+      <a href="/" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
+        <h1>ELS<span>.</span></h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="/">Home</a></li>
+          <li class="dropdown megamenu"><a href="#"><span>ELS Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li>
+                <a href="/buy_electricity">Buy Electricity</a>
+                <a href="/borrow_electricity">Borrow Electricity</a>
+                <a href="/check_balance">Check Remaining Unit</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle d-none"></i>
+      </nav><!-- .navbar -->
+
+      <a class="btn-getstarted scrollto" href="/signin">Sign In</a>
+
+    </div>
+    
+  </header><!-- End Header -->
+    <form method="POST" action="/lend"  class="form">
+      {% if messages %}
+      {% for msg in messages %}
+      <p style="text-align: center; color: red;">{{msg}}</p>
+      {% endfor %}
+      {% endif %}
+      {% csrf_token %}
+      <h1 class="text-center">Borrow Electricity</h1>
+      <!-- Progress bar -->
+      <div class="progressbar">
+        <div class="progress" id="progress"></div>
+        
+        <div
+          class="progress-step progress-step-active"
+          data-title="Info"
+          style="background-color:  #1D95C9;"
+        ></div>
+        <div class="progress-step" data-title="Amount" style="background-color:  #1D95C9;"></div>
+        <div class="progress-step" data-title="Borrow" style="background-color:  green;"></div>
+      </div>
+
+      <!-- Steps -->
+      <div class="form-step form-step-active">
+        <div class="input-group">
+          <label for="meter">Meter No</label>
+          <input type="text" name="meter" id="meter" placeholder="Enter Meter Number"/>
+          
+        </div>
+        <div class="">
+          <a href="#" class="btn btn-next width-50 ml-auto" style="background-color:  #1D95C9;">Next</a>
+        </div>
+      </div>
+      <!-- <div class="form-step">
+        
+        <div class="input-group">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" />
+        </div>
+        <div class="input-group">
+          <label for="phone">Phone</label>
+          <input type="text" name="phone" id="phone"  />
+        </div>
+         <div class="input-group">
+          <label for="address">Address</label>
+          <input type="text" name="address" id="address" />
+        </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev" style="background-color:  #1D95C9;">Previous</a>
+          <a href="#" class="btn btn-next" style="background-color:  #1D95C9;">Next</a>
+        </div>
+      </div> -->
+      <div class="form-step">
+        <div class="input-group">
+          <label for="ammount">Amount</label>
+          <input type="number" name="amount" id="amount"  placeholder="FRW below 1500"/>
+        </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev" style="background-color:  #1D95C9;">Previous</a>
+          <a href="#" class="btn btn-next" style="background-color:  #1D95C9;">Next</a>
+        </div>
+      </div>
+      <div class="form-step">
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev" style="background-color:  #1D95C9;">Previous</a>
+          <input type="submit" value="BORROW" class="btn" style="background-color:  green;" />
+         
+        </div>
+
+      </div>
+    </form>
+  </body>
+</html>

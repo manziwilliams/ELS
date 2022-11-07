@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>ELectricity Lending System</title>
+        <link href="../static/img/white.jpg" rel="icon">
+
+        <link rel="stylesheet" href="../static/Dashboard/vendors/feather/feather.css">
+        <link rel="stylesheet" href="../static/Dashboard/vendors/mdi/css/materialdesignicons.min.css">
+        <link rel="stylesheet" href="../static/Dashboard/vendors/ti-icons/css/themify-icons.css">
+        <link rel="stylesheet" href="../static/Dashboard/vendors/typicons/typicons.css">
+        <link rel="stylesheet" href="../static/Dashboard/vendors/simple-line-icons/css/simple-line-icons.css">
+        <link rel="stylesheet" href="../static/Dashboard/vendors/css/vendor.bundle.base.css">
+        <link rel="stylesheet" href="../static/Dashboard/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="../static/Dashboard/js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="../static/Dashboard/css/vertical-layout-light/style.css">
+                <!-- Font Icon -->
+        <link rel="stylesheet"
+              href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+        <!-- Main css -->
+        <link rel="stylesheet" href="../static/css/style.css">
+    </head>
+    <body>
+        <input type="hidden" id="status" >
+        <div class="main">
+
+            <!-- Sign up form -->
+            <section class="signup">
+                <div class="container">
+                    <div class="signup-content">
+                        <div class="signup-form">
+                            <h2 class="form-title">Details</h2>
+                            
+                            <form method="POST" action="{% url 'save-customer' %}" class="register-form"
+                                  id="register-form">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="name"><i
+                                            class="zmdi zmdi-account material-icons-name"></i></label> <input
+                                        type="text" name="name" id="name" placeholder="Your Names" required="Required"  />
+                                </div>
+
+                                
+                                <div class="form-group">
+                                    <label for="meter"><i
+                                            class="zmdi zmdi-account material-icons-name"></i></label> <input
+                                        type="text" name="meter" id="meter" placeholder="Meter Number" required="Required" maxlength="16" minlength="16"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address"><i class="zmdi zmdi-lock"></i></label> <input
+                                        type="text" name="address" id="address" placeholder="address: District,Sector" required="Required"  />
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                    <input type="text" name="contact" id="contact"
+                                           placeholder="Contact no : +250XXXXXXXXX" required="Required" pattern="[+250]+[0-9]{10}" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="name"><i
+                                            class="zmdi zmdi-account material-icons-name"></i></label> <input
+                                        type="text" name="name" id="name" placeholder="Your Names" required="Required"  />
+                                </div>
+                                <div class="form-group">
+                                    <label for="name"><i
+                                            class="zmdi zmdi-account material-icons-name"></i></label> <input
+                                        type="text" name="name" id="name" placeholder="Your Names" required="Required"  />
+                                </div>
+                                
+                                <div class="form-group form-button">
+                                    <input type="submit" name="signup" id="signup"
+                                           class="form-submit" value="BUY" />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="signup-image" style="padding-top: 20px;">
+                            <figure>
+                                <img src="../static/img/white.jpg" alt="sing up image">
+                            </figure>
+                            <a href="/customer_table" class="signup-image-link" > Go Back</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+        <!-- JS -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="alert/dist/sweetalert.css"/>
+        <!-- <script type="text/javascript">
+            
+             var stat= document.getElementById('status').value;
+            if( stat === "sucess"){
+                swal("Congrats","Account saved succefully!!","success");
+            }else{
+                swal("Sorry","Enable to save!!","error");
+            }
+        </script> -->
+        
+
+
+
+    </body>
+    <!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
